@@ -8,11 +8,11 @@ def cesar(text, shift)
     if letter.match /[A-Za-z]/
       upcase = letter.upcase == letter ? true : false
       letter.upcase!
-      new_letter = nil
       if (((letter.ord + shift) > "Z".ord) && (letter <= "Z"))
         new_letter = ("A".ord + shift - ("Z".ord - letter.ord) -1).chr
+      else
+        new_letter = (letter.ord + shift).chr
       end
-      new_letter ||= (letter.ord + shift).chr
       upcase ? print(new_letter) : print(new_letter.downcase)
     else
       print letter 
